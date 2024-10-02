@@ -106,8 +106,8 @@ sudo systemctl restart apache2
 Crea un archivo PHP en el directorio de Apache para verificar que PHP esté funcionando correctamente.
 
 ```bash
-
 sudo vim /var/www/html/info.php
+```
 
 Agrega el siguiente contenido:
 
