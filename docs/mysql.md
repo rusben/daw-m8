@@ -82,5 +82,5 @@ Un cop descomprimits els fitxers de l'aplicació web al directori `/var/www/html
 ```console
 cd /var/www/html
 chmod -R 775 .
-chown -R root:www-data .
+chown -R usuario:www-data .
 ```
