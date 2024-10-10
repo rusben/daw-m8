@@ -2,9 +2,9 @@
 
 Si recién estás comenzando tu viaje en el desarrollo de PHP, es probable que uses nombres de archivos completos en la URL para navegar por tu aplicación, como `server/contact.php`. No te preocupes, todos empezamos así y así es como aprendemos.
 
-Hoy quiero ayudarte a mejorar la forma en que navegas por los archivos en tu aplicación. Hablaremos sobre el enrutamiento, ya que es crucial en cualquier aplicación moderna. Te ayudará a dar un paso adelante en tu desarrollo PHP profesional.
+Hoy quiero ayudarte a mejorar la forma en que navegas por los archivos en tu aplicación. Hablaremos sobre el `routing`, ya que es crucial en cualquier aplicación moderna. Te ayudará a dar un paso adelante en tu desarrollo PHP profesional.
 
-Un sistema de enrutamiento simplemente asigna una solicitud HTTP a un controlador de solicitudes (función o método). Es decir, define cómo navegamos o accedemos a diferentes partes de una aplicación sin necesidad de escribir el nombre del archivo. Puede hacer esto creando o configurando rutas (o caminos). Por ejemplo, la ruta `server/contact` nos permite acceder al archivo contact.php.
+Un sistema de `routing` simplemente asigna una solicitud HTTP a un controlador de solicitudes (función o método). Es decir, define cómo navegamos o accedemos a diferentes partes de una aplicación sin necesidad de escribir el nombre del archivo. Puede hacer esto creando o configurando rutas (o caminos). Por ejemplo, la ruta `server/contact` nos permite acceder al archivo contact.php.
 
 ## Requisitos previos
 
@@ -14,14 +14,14 @@ Para aprovechar al máximo este tutorial, necesitará lo siguiente:
 * Una comprensión básica de `http` y redes.
 * Un servidor `apache2` o `nginx` y conocimientos básicos de cómo configurarlos.
 
-## ¿Cómo funciona el enrutamiento?
+## ¿Cómo funciona el `routing`?
 
-Primero, déjame recordarte qué es una ruta. El enrutamiento nos permite estructurar nuestra aplicación de una mejor manera y deshacernos de las URL desordenadas. Estas son dos características principales que ofrece cualquier buen sistema de enrutamiento:
+Primero, déjame recordarte qué es una ruta. El `routing` nos permite estructurar nuestra aplicación de una mejor manera y deshacernos de las URL desordenadas. Estas son dos características principales que ofrece cualquier buen sistema de `routing`:
 
 * Define qué acción ejecutar para cada solicitud entrante.
 * Genera URL compatibles con SEO (por ejemplo, `/views/users` en lugar de `views/user.php?all`).
 
-Para hacer un sistema de enrutamiento, necesitamos un enrutador, que no es más que el archivo de entrada a nuestra aplicación. De forma predeterminada, este archivo de entrada se denomina index.php. Dentro del archivo definimos el sistema de enrutamiento gracias a [switch](https://www.php.net/manual/en/control-structures.switch.php) o [match](https://www.php.net/manual/en/control-structures.match.php) declaraciones.
+Para hacer un sistema de `routing`, necesitamos un `router`, que no es más que el archivo de entrada a nuestra aplicación. De forma predeterminada, este archivo de entrada se denomina `index.php`. Dentro del archivo definimos el sistema de `routing` gracias a [switch](https://www.php.net/manual/en/control-structures.switch.php) o [match](https://www.php.net/manual/en/control-structures.match.php) declaraciones.
 
 Por último y no menos importante, debemos redirigir todas las solicitudes al router. Esto se hace en el archivo de configuración del servidor PHP.
 
@@ -43,10 +43,10 @@ Antes de seguir adelante, veamos cómo será el proyecto:
 ## Utilice los siguientes comandos de shell para iniciar el proyecto:
     
 * **.htaccess**: un archivo de configuración de `apache2` a nivel de directorio. No lo necesita si utiliza un servidor `nginx`.
-* **index.php**: este es el enrutador y el archivo de entrada del proyecto. Todas las solicitudes entrantes serán redirigidas aquí.
+* **index.php**: este es el `router` y el archivo de entrada del proyecto. Todas las solicitudes entrantes serán redirigidas aquí.
 * **views**: esta carpeta contiene todas las interfaces de usuario del proyecto.
 
-## Cómo redirigir todas las solicitudes HTTP al enrutador
+## Cómo redirigir todas las solicitudes HTTP al `router`
 
 Dijimos anteriormente que la redirección se realiza en el archivo de configuración del servidor PHP. Por lo tanto, deberás realizar algunos ajustes dependiendo de si utilizas un servidor `apache2` o `nginx`.
 
@@ -81,7 +81,7 @@ En el código anterior, reemplace `/folder/` con el nombre de la carpeta que con
 
 El archivo de configuración predeterminado se llama nginx.conf. Este archivo se puede encontrar en `etc/nginx`, `usr/local/nginx/conf`, o `/usr/local/etc/nginx`.
 
-Para redirigir a index.php use el siguiente comando:
+Para redirigir a `index.php` use el siguiente comando:
 
 ```bash
 location / {
@@ -95,9 +95,9 @@ La directiva `try_files` le dice al servidor que para cualquier solicitud al URI
 
 Vuelva a cargar el servidor después de la modificación.
 
-## ¿Cómo crear el sistema de enrutamiento?
+## ¿Cómo crear el sistema de `routing`?
 
-Ahora sabemos cómo funciona el enrutamiento e incluso enviamos todas las solicitudes al enrutador. Ahora es el momento de escribir el código del enrutador en index.php.
+Ahora sabemos cómo funciona el `routing` e incluso enviamos todas las solicitudes al `router`. Ahora es el momento de escribir el código del `router` en `index.php`.
 
 Primero, cree una variable para contener la cadena de solicitud HTTP:
 
@@ -123,7 +123,7 @@ Consideremos que nuestra variable tiene el valor `/views/users/`. Cuando se ejec
 
 Nota: Cada vez que la declaración de caso se evalúa como verdadera, PHP continuará ejecutando el código en las siguientes declaraciones de caso sin necesariamente evaluar esas declaraciones de caso. En nuestro caso, PHP también requiere views/dep.php. Para evitar este "mal comportamiento", debe agregar una declaración de interrupción después de cada declaración de caso.
 
-Ahora juntemos todo en nuestro archivo index.php:
+Ahora juntemos todo en nuestro archivo `index.php`:
 
 ```php
 <?php
@@ -185,15 +185,15 @@ Simplemente coloque algo de contenido en cada archivo:
 <p>You've reached the end of Internet.</p>
 ```
 
-Como puede ver, cada archivo solo contiene un título y un párrafo. Siéntete libre de agregar el contenido que quieras y probar el enrutador.
+Como puede ver, cada archivo solo contiene un título y un párrafo. Siéntete libre de agregar el contenido que quieras y probar el `router`.
 
 ## Pensamientos finales
 
-En este tutorial, aprendió cómo crear un sistema de enrutamiento básico desde cero, que incluye:
+En este tutorial, aprendió cómo crear un sistema de `routing` básico desde cero, que incluye:
 
-* Cómo crear un archivo llamado `index.php` en la raíz del proyecto. Este es el enrutador para su aplicación.
-* Cómo redirigir todas las solicitudes entrantes al enrutador. Esto lo haces en el archivo de configuración de tu servidor.
-* Cómo crear el sistema de enrutamiento con una declaración de cambio en el enrutador.
+* Cómo crear un archivo llamado `index.php` en la raíz del proyecto. Este es el `router` para su aplicación.
+* Cómo redirigir todas las solicitudes entrantes al `router`. Esto lo haces en el archivo de configuración de tu servidor.
+* Cómo crear el sistema de `routing` con una declaración de cambio en el `router`.
 
 
 ### Más información
