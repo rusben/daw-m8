@@ -137,7 +137,7 @@ switch ($request) {
         require __DIR__ . $viewDir . 'home.php';
         break;
 
-    case '/views/users':
+    case '/users':
         require __DIR__ . $viewDir . 'users.php';
         break;
 
