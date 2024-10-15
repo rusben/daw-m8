@@ -56,13 +56,16 @@ Aquí podemos usar fácilmente el archivo .htaccess que ya hemos creado en la ra
 
 ```bash
 RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)＄ index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
 ```
 
-* Línea 1: Activamos el motor de reescritura en tiempo de ejecución del servidor `apache2`.
-* Línea 2: Limitamos el acceso a archivos físicos.
-* Línea 3: redirigimos todas las próximas solicitudes al `index.php`.
+* RewriteEngine On: activa el motor de reescritura en tiempo de ejecución
+* RewriteBase /: esta línea es opcional. Establece la URL base para las reglas de reescritura. Ajústela según la estructura de directorios de su aplicación
+* RewriteCond %{REQUEST_FILENAME} !-f: especifica una condición según la cual el nombre de archivo solicitado no es un archivo existente
+* RewriteCond %{REQUEST_FILENAME} !-d: especifica una condición según la cual el nombre de archivo solicitado no es un directorio existente
+* RewriteRule ^(.*)＄ index.php [QSA,L]: redirecciona todas las solicitudes (que no coinciden con archivos o directorios existentes) a index.php. El indicador QSA (Query String Append) garantiza que las cadenas de consulta se reenvíen a index.php. El indicador L (Last) indica que esta es la última regla que se aplicará si esta regla coincide.
 
 Nota: Si el sitio o la aplicación se encuentran en la raíz del servidor (o si no tenemos un host virtual), así es como debería verse el `.htaccess`:
 
