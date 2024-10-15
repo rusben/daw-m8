@@ -61,11 +61,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php [QSA,L]
 ```
 
-* RewriteEngine On: activa el motor de reescritura en tiempo de ejecución
-* RewriteBase /: esta línea es opcional. Establece la URL base para las reglas de reescritura. Ajústela según la estructura de directorios de su aplicación
-* RewriteCond %{REQUEST_FILENAME} !-f: especifica una condición según la cual el nombre de archivo solicitado no es un archivo existente
-* RewriteCond %{REQUEST_FILENAME} !-d: especifica una condición según la cual el nombre de archivo solicitado no es un directorio existente
-* RewriteRule ^(.*)＄ index.php [QSA,L]: redirecciona todas las solicitudes (que no coinciden con archivos o directorios existentes) a index.php. El indicador QSA (Query String Append) garantiza que las cadenas de consulta se reenvíen a index.php. El indicador L (Last) indica que esta es la última regla que se aplicará si esta regla coincide.
+* `RewriteEngine On`: activa el motor de reescritura en tiempo de ejecución
+* `RewriteBase /`: esta línea es opcional. Establece la URL base para las reglas de reescritura. Ajústela según la estructura de directorios de su aplicación
+* `RewriteCond %{REQUEST_FILENAME} !-f`: especifica una condición según la cual el nombre de archivo solicitado no es un archivo existente
+* `RewriteCond %{REQUEST_FILENAME} !-d`: especifica una condición según la cual el nombre de archivo solicitado no es un directorio existente
+* `RewriteRule ^(.*)$ index.php [QSA,L]`: redirecciona todas las solicitudes (que no coinciden con archivos o directorios existentes) a index.php. El indicador QSA (Query String Append) garantiza que las cadenas de consulta se reenvíen a index.php. El indicador L (Last) indica que esta es la última regla que se aplicará si esta regla coincide.
 
 Nota: Si el sitio o la aplicación se encuentran en la raíz del servidor (o si no tenemos un host virtual), así es como debería verse el `.htaccess`:
 
@@ -97,6 +97,47 @@ La `location /` bloque especifica que se trata de una coincidencia para todas la
 La directiva `try_files` le dice al servidor que para cualquier solicitud al URI que coincida con el bloque en la ubicación, pruebe primero con `$uri` (o `$uri/`) y, si el archivo está presente, entregue el archivo. De lo contrario, se utiliza la opción alternativa (`index.php`). Y este último comportamiento es el que queremos.
 
 Vuelva a cargar el servidor después de la modificación.
+
+## Permitir la re-escritura de URLs en apache2
+
+Edite el fichero `/etc/apache2/apache2.conf`:
+
+Busca en el fichero:
+```bash
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+```
+
+Y cámbialo por:
+
+```bash
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+```
+
+Después reinicia el servidor `apache2`: 
+```bash
+sudo service apache2 restart
+```
+
+## Activar el módulo rewrite de apache2
+
+```bash
+sudo a2enmod rewrite
+```
+
+Después reinicia el servidor `apache2`: 
+```bash
+sudo service apache2 restart
+```
+
+
 
 ## ¿Cómo crear el sistema de `routing`?
 
