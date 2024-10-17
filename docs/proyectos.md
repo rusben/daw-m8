@@ -5,14 +5,14 @@
 A partir de los proyctos `php-portfolio` y `php-routing`, tenemos que crear un nuevo repositorio que implemente routing y que tenga acceso a base de datos a partir del `DatabaseController.php`.
 
 ### Página principal
-La pàgina debe estar hecha utilizando `Bootstrap`. La página tiene un botón que sirve para generar enlaces de un solo uso. El formulario se enviará por `POST` y cuando se reciba la llamada la página generará un token de un sólo uso y escribirá el enlace (hash de 32 carácteres) en la web: `www.links.local/abcdefabcdefabcdefabcdefabcdefab`.
+La pàgina debe estar hecha utilizando `Bootstrap`. La página tiene un botón que sirve para generar enlaces de un solo uso. El formulario se enviará por `POST` y cuando se reciba la llamada la página generará un token de un sólo uso y escribirá el enlace (hash de 32 carácteres) en la web: `www.links.local/token/abcdefabcdefabcdefabcdefabcdefab`.
 Cada vez que se genere un enlace hay que comprobar en la base de datos si existe ese enlace, en caso de que exista generar uno nuevo, y en caso de que no exista guardarlo en la base de datos con 0 usos.
 
 ### Base de datos
 La base de datos tendrá una sola tabla `Links` que tendrá dos atributos `token` y `usages`.
 
 ### Respuesta al acceder a la página con el token
-Cuando accedemos a la página con el token que hemos generado `www.links.local/abcdefabcdefabcdefabcdefabcdefab` la página actuará de la siguiente manera:
+Cuando accedemos a la página con el token que hemos generado `www.links.local/token/abcdefabcdefabcdefabcdefabcdefab` la página actuará de la siguiente manera:
 
 * Primera visita (1 usage): 👍
 * Segunda, tercera y cuarta visita (2,3,4 usages): 🖕
