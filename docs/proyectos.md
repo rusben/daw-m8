@@ -24,7 +24,7 @@ El controlador de links debe tener al menos las siguientes funciones:
 * `getLinks()`: Devuelve todos los links del sistema.
 * `getLink($token)`: Devuelve el link que coincide con el `$token` y en caso de no existir devuelve `null`.
 * `exist($token)`: Devuelve `true` si el link existe en la Base de Datos, `false` en caso contrario. 
-* `generateHash($size)`: Devuelve una hash de tamaño `$size`.
-* `numberOfUsages($link)`: Devuelve el número de usos del `$link` o `null` en caso de que el `$link` no exista.
-* `addUsage($link)`: Suma 1 a los usages del `$link`, devuelve `true` si todo ha ido bien, o `false` si se ha producido un error (o el `$link` no existe).
+* `generateHash($token)`: Devuelve una hash de tamaño `$size`.
+* `numberOfUsages($token)`: Devuelve el número de usos del `$token` o `null` en caso de que el `$link` no exista.
+* `addUsage($token)`: Suma 1 a los usages del `$token`, devuelve `true` si todo ha ido bien, o `false` si se ha producido un error (o el `$token` no existe).
 * `createLink()`: Crea un nuevo link en la base de datos y devuelve la hash creada o `null` en caso de que haya habido algún fallo.
