@@ -32,7 +32,7 @@ El controlador de links debe tener al menos las siguientes funciones:
 
 ## API `www.api.local`
 
-Con la misma estructura que el proyecto `php-routing` tenemos que crear una API para nuestra aplicación que devuelva JSON.
+Con la misma estructura que el proyecto `php-routing` tenemos que crear una `API` para nuestra aplicación que devuelva `JSON`.
 
 ### Base de datos
 
@@ -50,6 +50,6 @@ Una tabla `Users` con la siguiente información:
 
 * `GET` `api/users`: Devuelve los usuarios del sistema.
 * `POST` `api/users`: Permite crear un nuevo usuario.
-* `GET` `api/users/<id>`: Devuelve el usuario identificado por <id>
-* `PUT` `api/users/<id>`: Actualiza el usuario identificado por <id>
-* `DELETE` `api/users/<id>`: Elimina el usuario identificado por <id>
+* `GET` `api/users/<id>`: Devuelve el usuario identificado por `\<id\>`
+* `PUT` `api/users/<id>`: Actualiza el usuario identificado por `\<id\>`
+* `DELETE` `api/users/<id>`: Elimina el usuario identificado por `\<id\>`
