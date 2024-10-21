@@ -28,3 +28,28 @@ El controlador de links debe tener al menos las siguientes funciones:
 * `numberOfUsages($token)`: Devuelve el número de usos del `$token` o `null` en caso de que el `$link` no exista.
 * `addUsage($token)`: Suma 1 a los usages del `$token`, devuelve `true` si todo ha ido bien, o `false` si se ha producido un error (o el `$token` no existe).
 * `createLink()`: Crea un nuevo link en la base de datos y devuelve la hash creada o `null` en caso de que haya habido algún fallo.
+
+
+## API `www.api.local`
+
+Con la misma estructura que el proyecto `php-routing` tenemos que crear una API para nuestra aplicación que devuelva JSON.
+
+### Base de datos
+
+Una tabla `Users` con la siguiente información:
+
+* id (PRIMARY KEY)
+* name (TEXT)
+* surname (TEXT)
+* email (TEXT - UNIQUE)
+* dni (TEXT - UNIQUE)
+* phone (TEXT)
+* born (DATE)
+
+### ENDPOINTS de la API
+
+* `GET` `api/users`: Devuelve los usuarios del sistema.
+* `POST` `api/users`: Permite crear un nuevo usuario.
+* `GET` `api/users/<id>`: Devuelve el usuario identificado por <id>
+* `PUT` `api/users/<id>`: Actualiza el usuario identificado por <id>
+* `DELETE` `api/users/<id>`: Elimina el usuario identificado por <id>
