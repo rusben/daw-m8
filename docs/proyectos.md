@@ -36,7 +36,7 @@ Con la misma estructura que el proyecto `php-routing` tenemos que crear una `API
 
 ### Base de datos
 
-Una tabla `Users` con la siguiente información:
+Una tabla `User` con la siguiente información:
 
 * id (PRIMARY KEY)
 * name (TEXT)
