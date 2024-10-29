@@ -1,6 +1,6 @@
 # API RESTful
 
-La creación de una API RESTful (Representational State Transfer) es una metodología de diseño para servicios web que permite la comunicación entre sistemas de manera sencilla, escalable y eficiente. Las APIs RESTful están basadas en el protocolo HTTP y se utilizan para que los sistemas puedan intercambiar datos y realizar operaciones como crear, leer, actualizar y eliminar recursos. A continuación, te detallo cada uno de los conceptos clave, junto con buenas prácticas y recomendaciones esenciales para una correcta implementación.
+La creación de una `API RESTful` (`Representational State Transfer`) es una metodología de diseño para servicios web que permite la comunicación entre sistemas de manera sencilla, escalable y eficiente. Las `APIs RESTful` están basadas en el protocolo `HTTP` y se utilizan para que los sistemas puedan intercambiar datos y realizar operaciones como crear, leer, actualizar y eliminar recursos. A continuación, te detallo cada uno de los conceptos clave, junto con buenas prácticas y recomendaciones esenciales para una correcta implementación.
 
 ## Conceptos Básicos
 **Recursos**
@@ -8,7 +8,7 @@ En `REST`, los recursos son las entidades principales con las que trabajaremos. 
 Cada recurso se identifica mediante una `URL` única y, en general, los recursos se expresan en plural (ej. `/usuarios`, `/productos`).
 
 **Operaciones CRUD**
-Los servicios RESTful se basan en las operaciones CRUD (Create, Read, Update, Delete), que se asocian con los métodos HTTP:
+Los servicios `RESTful` se basan en las operaciones `CRUD` (`Create`, `Read`, `Update`, `Delete`), que se asocian con los métodos `HTTP`:
 * **POST**: Crea un nuevo recurso.
 * **GET**: Obtiene uno o más recursos.
 * **PUT**: Actualiza un recurso existente.
@@ -26,7 +26,7 @@ https://api.dominio.com/{recurso}/{id}
 **Estructura típica de Endpoints**
 
 * `GET` `/usuarios`: Recupera una lista de usuarios.
-* `GET` `/usuarios/{id}`: Recupera un usuario específico por su ID.
+* `GET` `/usuarios/{id}`: Recupera un usuario específico por su `ID`.
 * `POST` `/usuarios`: Crea un nuevo usuario.
 * `PUT` `/usuarios/{id}`: Actualiza todos los datos de un usuario específico.
 * `PATCH` `/usuarios/{id}`: Modifica parcialmente los datos de un usuario.
@@ -34,7 +34,7 @@ https://api.dominio.com/{recurso}/{id}
 
 **Buenas prácticas para diseñar Endpoints**
 
-* **Nombres de recursos en plural**: Es común usar el plural en los nombres de los recursos (/usuarios en lugar de `/usuario`) para facilitar la lectura.
+* **Nombres de recursos en plural**: Es común usar el plural en los nombres de los recursos (`/usuarios` en lugar de `/usuario`) para facilitar la lectura.
 * **Evita verbos en los nombres de los endpoints**: Los métodos `HTTP` ya indican la acción, por lo que no es necesario nombrar el endpoint como `/crearUsuario`; simplemente usa `POST` `/usuarios`.
 * **Anidación de recursos**: Cuando un recurso está relacionado jerárquicamente con otro (ej. obtener pedidos de un usuario), puedes anidar los endpoints, por ejemplo, `GET` `/usuarios/{id}/pedidos`.
 * **Versionado**: Para mantener compatibilidad en futuras versiones, se recomienda versionar las APIs (ej. `/v1/usuarios`), especialmente en aplicaciones públicas.
@@ -53,9 +53,9 @@ Las respuestas de la `API` contienen el estado de la operación y los datos soli
 
 ### Códigos de Estado HTTP
 
-* **200 OK**: Operación exitosa, por ejemplo, en una solicitud GET.
-* **201 Created**: Recurso creado exitosamente, se utiliza con POST.
-* **204 No Content**: Operación exitosa sin contenido de respuesta, común con DELETE.
+* **200 OK**: Operación exitosa, por ejemplo, en una solicitud `GET`.
+* **201 Created**: Recurso creado exitosamente, se utiliza con `POST`.
+* **204 No Content**: Operación exitosa sin contenido de respuesta, común con `DELETE`.
 * **400 Bad Request**: Error en la solicitud, por ejemplo, datos inválidos.
 * **401 Unauthorized**: Falta de autenticación para acceder al recurso.
 * **403 Forbidden**: Autenticado pero sin permiso para acceder.
@@ -71,7 +71,7 @@ Las respuestas de la `API` contienen el estado de la operación y los datos soli
 ## Autenticación y Autorización
 
 * La autenticación se encarga de verificar la identidad del usuario, mientras que la autorización determina si tiene permisos para realizar una acción.
-* **Token JWT (JSON Web Token)**: Es un método común para la autenticación en APIs RESTful. El cliente envía el token en el encabezado Authorization con cada solicitud.
+* **Token JWT (JSON Web Token)**: Es un método común para la autenticación en `APIs RESTful`. El cliente envía el token en el encabezado `Authorization` con cada solicitud.
 * **OAuth2**: Ideal para escenarios donde los usuarios necesitan autenticarse a través de un tercero (por ejemplo, Google o Facebook).
 
 ## Buenas Prácticas en APIs REST
@@ -79,9 +79,9 @@ Las respuestas de la `API` contienen el estado de la operación y los datos soli
 * **Estandariza las Respuestas**: Estandariza el formato de las respuestas, para que sea fácil de manejar por los clientes y reducir errores.
 * **Implementa Manejo de Errores**: Proporciona respuestas consistentes ante errores y devuelve mensajes informativos.
 * **Usa HATEOAS (Hypermedia as the Engine of Application State)**: Añade enlaces a otros endpoints en las respuestas para facilitar la navegación entre recursos.
-* **Documenta la API**: Utiliza herramientas como Swagger o OpenAPI para generar documentación y ayudar a los desarrolladores a entender cómo interactuar con tu API.
+* **Documenta la API**: Utiliza herramientas como `Swagger` o `OpenAPI` para generar documentación y ayudar a los desarrolladores a entender cómo interactuar con tu `API`.
 * **Optimiza para rendimiento**:
-    * Usa caché para respuestas frecuentes, especialmente en peticiones GET.
+    * Usa caché para respuestas frecuentes, especialmente en peticiones `GET`.
     * Minimiza el tamaño de las respuestas incluyendo solo los campos necesarios.
 
 ## Herramientas de Prueba
@@ -91,13 +91,13 @@ Las respuestas de la `API` contienen el estado de la operación y los datos soli
 
 ## Ejemplo de implementación básica
 
-Para una API básica en PHP, usaremos el archivo index.php para manejar todas las solicitudes. La API responderá a los métodos `HTTP` (`GET`, `POST`, `PUT`, `DELETE`) y procesará las solicitudes en función del tipo de recurso y del ID, si está presente.
+Para una `API` básica en `PHP`, usaremos el archivo index.php para manejar todas las solicitudes. La `API` responderá a los métodos `HTTP` (`GET`, `POST`, `PUT`, `DELETE`) y procesará las solicitudes en función del tipo de recurso y del `ID`, si está presente.
 
 
 ### Estructura del Proyecto
 
-* `index.php`: archivo principal que contiene toda la lógica de la API.
-* `usuarios.json`: archivo donde se almacenarán los datos de los usuarios en formato JSON, simulando una base de datos.
+* `index.php`: archivo principal que contiene toda la lógica de la `API`.
+* `usuarios.json`: archivo donde se almacenarán los datos de los usuarios en formato `JSON`, simulando una base de datos.
 
 ### Código de `index.php`
 
@@ -229,32 +229,32 @@ switch ($method) {
 ### Explicación del Código
 
 1. Carga y Guardado de Usuarios:
-* La función `cargarUsuarios()` carga el contenido del archivo usuarios.json.
-* La función `guardarUsuarios()` guarda los datos en el archivo JSON.
+* La función `cargarUsuarios()` carga el contenido del archivo `usuarios.json`.
+* La función `guardarUsuarios()` guarda los datos en el archivo `JSON`.
 
 2. Encabezados y Método `HTTP`:
-* Configuramos el encabezado Content-Type para devolver datos en JSON.
+* Configuramos el encabezado Content-Type para devolver datos en `JSON`.
 * Capturamos el método `HTTP` (`GET`, `POST`, `PUT`, `DELETE`) para determinar la operación solicitada.
 
-3. Procesamiento de Solicitudes por Método HTTP:
+3. Procesamiento de solicitudes por método `HTTP`:
 * **GET**:
     * **Sin ID**: devuelve todos los usuarios.
     * **Con ID**: devuelve un usuario específico.
 * **POST**:
     * Crea un nuevo usuario si se proporcionan los datos nombre y email.
 * **PUT**:
-    * Actualiza todos los campos de un usuario específico. Verifica la existencia del ID y de los campos requeridos (nombre, email).
+    * Actualiza todos los campos de un usuario específico. Verifica la existencia del ID y de los campos requeridos (`nombre`, `email`).
 * **DELETE**:
-    * Elimina un usuario específico usando su ID.
+    * Elimina un usuario específico usando su `ID`.
 
 
-4. Gestión de Respuestas y Códigos de Estado HTTP:
+4. Gestión de respuestas y códigos de estado `HTTP`:
 * Los códigos de estado (`200`, `201`, `204`, `404`, `400`, `405`) y los mensajes se utilizan para comunicar el estado de la solicitud.
 * En caso de éxito, se envía la información solicitada o un mensaje de éxito.
 
 ### Archivo `usuarios.json`
 
-Inicialmente, el archivo usuarios.json estará vacío (`[]`). Cada vez que se agrega o modifica un usuario, se actualiza con los nuevos datos.
+Inicialmente, el archivo `usuarios.json` estará vacío (`[]`). Cada vez que se agrega o modifica un usuario, se actualiza con los nuevos datos.
 
 ```json
 []
@@ -262,7 +262,7 @@ Inicialmente, el archivo usuarios.json estará vacío (`[]`). Cada vez que se ag
 
 ### Probando la API
 
-Puedes probar esta API usando herramientas como `Postman` o `cURL` desde la terminal.
+Puedes probar esta `API` usando herramientas como `Postman` o `cURL` desde la terminal.
 
 #### Ejemplos de Pruebas
 
