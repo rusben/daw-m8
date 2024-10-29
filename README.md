@@ -7,4 +7,7 @@
 * [apache2](docs/apache2.md)
 * [mysql-server](docs/mysql.md)
 * [Routing en PHP](docs/routing-php.md)
+* [API en PHP](docs/api.md)
+* [Autenticación en PHP](docs/autenticacion.md)
+* [JWT (JSON Web Tokens)](docs/jwt.md)
 
