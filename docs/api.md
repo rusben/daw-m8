@@ -3,47 +3,45 @@
 La creación de una API RESTful (Representational State Transfer) es una metodología de diseño para servicios web que permite la comunicación entre sistemas de manera sencilla, escalable y eficiente. Las APIs RESTful están basadas en el protocolo HTTP y se utilizan para que los sistemas puedan intercambiar datos y realizar operaciones como crear, leer, actualizar y eliminar recursos. A continuación, te detallo cada uno de los conceptos clave, junto con buenas prácticas y recomendaciones esenciales para una correcta implementación.
 
 ## Conceptos Básicos
-Recursos
+**Recursos**
+En `REST`, los recursos son las entidades principales con las que trabajaremos. Estos suelen representarse como entidades de negocio, por ejemplo, `usuarios`, `productos` o `pedidos`.
+Cada recurso se identifica mediante una `URL` única y, en general, los recursos se expresan en plural (ej. `/usuarios`, `/productos`).
 
-    En REST, los recursos son las entidades principales con las que trabajaremos. Estos suelen representarse como entidades de negocio, por ejemplo, "usuarios", "productos" o "pedidos".
-    Cada recurso se identifica mediante una URL única y, en general, los recursos se expresan en plural (ej. /usuarios, /productos).
-
-Operaciones CRUD
-
-    Los servicios RESTful se basan en las operaciones CRUD (Create, Read, Update, Delete), que se asocian con los métodos HTTP:
-        POST: Crea un nuevo recurso.
-        GET: Obtiene uno o más recursos.
-        PUT: Actualiza un recurso existente.
-        PATCH: Modifica parcialmente un recurso.
-        DELETE: Elimina un recurso.
+**Operaciones CRUD**
+Los servicios RESTful se basan en las operaciones CRUD (Create, Read, Update, Delete), que se asocian con los métodos HTTP:
+* **POST**: Crea un nuevo recurso.
+* **GET**: Obtiene uno o más recursos.
+* **PUT**: Actualiza un recurso existente.
+* **PATCH**: Modifica parcialmente un recurso.
+* **DELETE**: Elimina un recurso.
 
 ## Endpoints en REST
 
-Un endpoint es una URL específica que expone una operación sobre un recurso. La estructura básica de un endpoint REST es:
+Un endpoint es una `URL` específica que expone una operación sobre un recurso. La estructura básica de un endpoint `REST` es:
 
-bash
-
+```bash
 https://api.dominio.com/{recurso}/{id}
+```
 
-Estructura Típica de Endpoints
+**Estructura típica de Endpoints**
 
-* GET /usuarios: Recupera una lista de usuarios.
-* GET /usuarios/{id}: Recupera un usuario específico por su ID.
-* POST /usuarios: Crea un nuevo usuario.
-* PUT /usuarios/{id}: Actualiza todos los datos de un usuario específico.
-* PATCH /usuarios/{id}: Modifica parcialmente los datos de un usuario.
-* DELETE /usuarios/{id}: Elimina un usuario específico.
+* `GET` `/usuarios`: Recupera una lista de usuarios.
+* `GET` `/usuarios/{id}`: Recupera un usuario específico por su ID.
+* `POST` `/usuarios`: Crea un nuevo usuario.
+* `PUT` `/usuarios/{id}`: Actualiza todos los datos de un usuario específico.
+* `PATCH` `/usuarios/{id}`: Modifica parcialmente los datos de un usuario.
+* `DELETE` `/usuarios/{id}`: Elimina un usuario específico.
 
-Buenas Prácticas para Diseñar Endpoints
+**Buenas prácticas para diseñar Endpoints**
 
-* Nombres de recursos en plural: Es común usar el plural en los nombres de los recursos (/usuarios en lugar de /usuario) para facilitar la lectura.
-* Evita verbos en los nombres de los endpoints: Los métodos HTTP ya indican la acción, por lo que no es necesario nombrar el endpoint como /crearUsuario; simplemente usa POST /usuarios.
-* Anidación de recursos: Cuando un recurso está relacionado jerárquicamente con otro (ej. obtener pedidos de un usuario), puedes anidar los endpoints, por ejemplo, GET /usuarios/{id}/pedidos.
-* Versionado: Para mantener compatibilidad en futuras versiones, se recomienda versionar las APIs (ej. /v1/usuarios), especialmente en aplicaciones públicas.
+* **Nombres de recursos en plural**: Es común usar el plural en los nombres de los recursos (/usuarios en lugar de `/usuario`) para facilitar la lectura.
+* **Evita verbos en los nombres de los endpoints**: Los métodos `HTTP` ya indican la acción, por lo que no es necesario nombrar el endpoint como `/crearUsuario`; simplemente usa `POST` `/usuarios`.
+* **Anidación de recursos**: Cuando un recurso está relacionado jerárquicamente con otro (ej. obtener pedidos de un usuario), puedes anidar los endpoints, por ejemplo, `GET` `/usuarios/{id}/pedidos`.
+* **Versionado**: Para mantener compatibilidad en futuras versiones, se recomienda versionar las APIs (ej. `/v1/usuarios`), especialmente en aplicaciones públicas.
 
 ## Respuestas de la API
 
-Las respuestas de la API contienen el estado de la operación y los datos solicitados. Generalmente, siguen el siguiente formato JSON:
+Las respuestas de la `API` contienen el estado de la operación y los datos solicitados. Generalmente, siguen el siguiente formato `JSON`:
 
 ```json
 {
@@ -53,7 +51,7 @@ Las respuestas de la API contienen el estado de la operación y los datos solici
 }
 ```
 
-Códigos de Estado HTTP
+### Códigos de Estado HTTP
 
 * **200 OK**: Operación exitosa, por ejemplo, en una solicitud GET.
 * **201 Created**: Recurso creado exitosamente, se utiliza con POST.
@@ -64,7 +62,7 @@ Códigos de Estado HTTP
 * **404 Not Found**: El recurso solicitado no existe.
 * **500 Internal Server Error**: Error en el servidor al procesar la solicitud.
 
-Estructura de las Respuestas
+### Estructura de las Respuestas
 
 * **Datos**: Utiliza una estructura clara y concisa que facilite la lectura, por ejemplo, evita datos innecesarios o redundantes en las respuestas.
 * **Mensajes de error específicos**: En caso de errores, proporciona mensajes detallados para que el cliente entienda qué salió mal.
