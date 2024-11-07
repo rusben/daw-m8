@@ -12,3 +12,6 @@
 * [JWT (JSON Web Tokens)](docs/jwt.md)
 * [i18n con gettext](docs/i18n.md)
 
+## Pràctica webscraping
+
+* [Enunciat pràctica](docs/practica.md)
