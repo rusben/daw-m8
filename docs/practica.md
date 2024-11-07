@@ -13,6 +13,10 @@ La práctica deberá cumplir con las siguientes especificaciones:
 Implementa la interfaz de usuario utilizando el framework `Bootstrap` para asegurar un diseño responsive y moderno.
 La página principal debe mostrar los datos scrapeados, con la posibilidad de que los usuarios puedan interactuar con ellos (ej., búsquedas, filtros, etc.).
 
+### Gráficas con alguna librería de JavaScript o mapas con GoogleMaps o OpenStreetMap
+
+A partir de los datos extraídos podría ser interesante presentar la información con alguna librería gráfica, ya sea librerías como `D3.js`, `Chart.js`, `Highcharts`, etc. o representar información geolocalizada con `GoogleMaps` o `OpenStreetMap` o similares.
+
 ### Routing en PHP
 
 Implementa un sistema de routing en `PHP` que permita gestionar las diferentes rutas de la aplicación (ej., página principal, página de administración, autenticación, etc.).
@@ -37,10 +41,12 @@ Implementa al menos dos idiomas (ej., español e inglés), y asegúrate de que t
 Realiza el scraping de datos en una web pública utilizando `Selenium` en `Python`.
 Los datos obtenidos deben ser estructurados y almacenados en una base de datos en el servidor del proyecto.
 El script de scraping debe ser capaz de ejecutarse de manera independiente y almacenar los datos en la base de datos para luego ser gestionados desde el panel de administración.
+Se recomienda que el script de scraping extraiga los datos y los guarde en un fomarto intermedio, por ejemplo, `CSV` o `XML`. Posteriormente debería recorrerse el archivo de datos extraídos e insertar los datos en nuestra base de datos.
 
 ### Modelo de Datos en Base de Datos
 Crea un modelo de datos adecuado para almacenar la información scrapeada en la base de datos.
 El modelo de datos debe ser estructurado de manera que permita futuras ampliaciones o cambios sin grandes modificaciones en el sistema.
+El modelo de datos deberá contar al menos con tres clases (tablas) relacionadas entre ellas.
 
 ### Gestión de Sesiones y Cookies
 Implementa la gestión de sesiones y cookies para mantener al usuario conectado en caso de que cierre el navegador, permitiendo el acceso continuo a la administración.
