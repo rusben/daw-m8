@@ -8,10 +8,12 @@ El objetivo de esta práctica es el desarrollo de una página web dinámica en P
 
 La práctica deberá cumplir con las siguientes especificaciones:
 
-### Front-end con Bootstrap
+### Front-end con Bootstrap y TWIG
 
 Implementa la interfaz de usuario utilizando el framework `Bootstrap` para asegurar un diseño responsive y moderno.
 La página principal debe mostrar los datos scrapeados, con la posibilidad de que los usuarios puedan interactuar con ellos (ej., búsquedas, filtros, etc.).
+
+Utilización del sistema de plantillas `TWIG` para la representación de los datos.
 
 ### Gráficas con alguna librería de JavaScript o mapas con GoogleMaps o OpenStreetMap
 
@@ -46,7 +48,8 @@ Se recomienda que el script de scraping extraiga los datos y los guarde en un fo
 ### Modelo de Datos en Base de Datos
 Crea un modelo de datos adecuado para almacenar la información scrapeada en la base de datos.
 El modelo de datos debe ser estructurado de manera que permita futuras ampliaciones o cambios sin grandes modificaciones en el sistema.
-El modelo de datos deberá contar al menos con tres clases (tablas) relacionadas entre ellas.
+El modelo de datos deberá contar al menos con tres clases (tablas) relacionadas entre ellas. 
+Es necesario presentar el modelo de datos al profesor préviamente a la extracción de los mismos.
 
 ### Gestión de Sesiones y Cookies
 Implementa la gestión de sesiones y cookies para mantener al usuario conectado en caso de que cierre el navegador, permitiendo el acceso continuo a la administración.
