@@ -72,6 +72,7 @@ Una vez que el navegador esté abierto, puedes interactuar con los elementos de 
 * **ID**: `find_element(By.ID, 'id_del_elemento')`
 * **Nombre**: `find_element(By.NAME, 'nombre_del_elemento')`
 * **Clase**: `find_element(By.CLASS_NAME, 'nombre_clase')`
+* **Etiqueta**: `find_element(By.TAG_NAME, 'nombre_etiqueta')`
 * **XPath**: `find_element(By.XPATH, 'ruta_xpath')`
 * **CSS Selector**: `find_element(By.CSS_SELECTOR, 'selector_css')`
 
